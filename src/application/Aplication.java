@@ -11,6 +11,7 @@ import view.LoginScreen;
  *
  * @author gabri
  */
+
 public class Aplication {
     public static void main(String args[]) {
         

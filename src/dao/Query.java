@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vo;
+package dao;
 
 /**
  *
  * @author gabri
  */
-public class FuncionariosVo {
-    
+public class Query {
+    public String selectLogin(){
+        var sql = "SELECT * FROM `vaccine`.`employees` WHERE Username=? AND Password=?;";
+        return sql;
+    }
 }

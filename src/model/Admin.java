@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package model;
 
 /**
  *
  * @author gabri
  */
-public class controller {
+public class Admin extends Attendant{
     
+    //Methods
+    public void insertAdm(){
+        
+    }    
 }
