@@ -18,16 +18,16 @@ import javax.swing.JOptionPane;
  */
 public class Attendant {
     //Attributes
-    private String cpf;
+    private String username;
     private String password;
     
     //Getters and setters
-    public String getCpf() {
-        return cpf;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setUsername(String cpf) {
+        this.username = cpf;
     }
 
     public String getPassword() {
@@ -43,37 +43,35 @@ public class Attendant {
     
     }
     
-    public String verifyAccess(String user, String pass){
-        //Chamando a classe de conexão 
-        Connection conexao = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        conexao = ConnectionDB.conector();
+    public String attendantConsultation(){
+
+        Connection conexao = ConnectionDB.conector();
         System.out.println(conexao);
         
         //Cria objeto sql
         Query sql = new Query();
         
         try {
-            pst = conexao.prepareStatement(sql.selectLogin());
-            pst.setString(1, user);
-            pst.setString(2, pass);
-            rs = pst.executeQuery();
+            PreparedStatement pst = conexao.prepareStatement(sql.selectLogin());
+            pst.setString(1, this.username);
+            pst.setString(2, this.password);
+            ResultSet rs = pst.executeQuery();
             String test = null;
             
             //Verifica se é adm ou não
             while(rs.next()){
                  test = rs.getString("Adm"); 
+                 System.out.println(test);
                 }
-
+               
             //Adiciona variáveis no sitema
-            System.setProperty("login", user); 
-            System.setProperty("password", pass);
+            System.setProperty("login", this.username); 
+            System.setProperty("password", this.password);
             System.setProperty("power", test);
             
             //se existir a pessoa
             if (test!=null){
-                return "Entrou!";
+                return "OK";
             }else{
                 return "Usuário ou senha incorreto(s)!";
             }

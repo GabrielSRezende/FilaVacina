@@ -1,10 +1,6 @@
 
 package view;
 
-import java.sql.*;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import dao.ConnectionDB;
 import controller.Controller;
 
 public class LoginScreen extends javax.swing.JFrame {
@@ -185,7 +181,11 @@ public class LoginScreen extends javax.swing.JFrame {
         String pass = txtPassword.getText();
         
         //Envia dados para o controller, para que os dados sejam verificados
-        labelStatus.setText("Status: " + control.captureAccess(user, pass));
+        String contr = control.captureAccess(user, pass);
+        if("".equals(contr)){
+            this.setVisible(false);
+        }
+        labelStatus.setText("Status: " + contr);
         
     }//GEN-LAST:event_buttonLoginActionPerformed
 

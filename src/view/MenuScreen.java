@@ -16,6 +16,12 @@ public class MenuScreen extends javax.swing.JFrame {
      */
     public MenuScreen() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        if("false".equals(System.getProperty("power"))){
+            labelEmp.setEnabled(false);
+            labelRep.setEnabled(false);
+        }
     }
 
     /**
@@ -27,40 +33,44 @@ public class MenuScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        labelPeo = new javax.swing.JLabel();
+        labelEmp = new javax.swing.JLabel();
+        labelRep = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Cadastrar func");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        labelPeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/paciente.png"))); // NOI18N
+
+        labelEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/medico.png"))); // NOI18N
+
+        labelRep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/relatorio.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(labelPeo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelEmp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelRep)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRep)
+                    .addComponent(labelEmp)
+                    .addComponent(labelPeo))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +108,8 @@ public class MenuScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel labelEmp;
+    private javax.swing.JLabel labelPeo;
+    private javax.swing.JLabel labelRep;
     // End of variables declaration//GEN-END:variables
 }
