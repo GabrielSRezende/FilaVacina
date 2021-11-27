@@ -40,10 +40,25 @@ public class MenuScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelPeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/paciente.png"))); // NOI18N
+        labelPeo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelPeoMouseClicked(evt);
+            }
+        });
 
         labelEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/medico.png"))); // NOI18N
+        labelEmp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelEmpMouseClicked(evt);
+            }
+        });
 
         labelRep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/relatorio.png"))); // NOI18N
+        labelRep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelRepMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +86,26 @@ public class MenuScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void labelEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEmpMouseClicked
+        if("true".equals(System.getProperty("power"))){
+            EmployeeScreen emp = new EmployeeScreen();
+            emp.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_labelEmpMouseClicked
+
+    private void labelPeoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPeoMouseClicked
+        PeopleScreen pat = new PeopleScreen();
+        pat.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_labelPeoMouseClicked
+
+    private void labelRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRepMouseClicked
+        ReportScreen rep = new ReportScreen();
+        rep.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_labelRepMouseClicked
 
     /**
      * @param args the command line arguments

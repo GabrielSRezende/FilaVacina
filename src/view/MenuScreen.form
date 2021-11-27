@@ -55,6 +55,9 @@
           <Image iconType="3" name="/Images/paciente.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelPeoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelEmp">
       <Properties>
@@ -62,6 +65,9 @@
           <Image iconType="3" name="/Images/medico.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelEmpMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelRep">
       <Properties>
@@ -69,6 +75,9 @@
           <Image iconType="3" name="/Images/relatorio.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelRepMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

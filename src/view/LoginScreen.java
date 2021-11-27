@@ -1,7 +1,7 @@
 
 package view;
 
-import controller.Controller;
+import model.Attendant;
 
 public class LoginScreen extends javax.swing.JFrame {
    
@@ -173,19 +173,22 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        //Instanciando a classe controller
-        Controller control = new Controller();
-        
+
         //Recebe os dados digitados
         String user = txtUsername.getText();
         String pass = txtPassword.getText();
         
-        //Envia dados para o controller, para que os dados sejam verificados
-        String contr = control.captureAccess(user, pass);
-        if("".equals(contr)){
+        Attendant attendant = new Attendant();
+        attendant.setUsername(user);
+        attendant.setPassword(pass);
+        
+        String status = attendant.checkAccess();
+        if(status.equals("OK")){
             this.setVisible(false);
+            MenuScreen emp = new MenuScreen();
+            emp.setVisible(true);
         }
-        labelStatus.setText("Status: " + contr);
+        labelStatus.setText("Status: " + status);
         
     }//GEN-LAST:event_buttonLoginActionPerformed
 

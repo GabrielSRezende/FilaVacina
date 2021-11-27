@@ -15,18 +15,18 @@ import view.MenuScreen;
  */
 public class Controller {
     //Faz contato com o model para verificar se existe esse usuário
-    public String captureAccess(String user, String pass){
-        Attendant attendant = new Attendant();
-        attendant.setUsername(user);
-        attendant.setPassword(pass);
-        
-        String very = attendant.attendantConsultation();
-        if("OK".equals(very)){
-            MenuScreen main = new MenuScreen();
-            main.setVisible(true); 
-            return "";
-        } else {
-            return very;
-        }  
-    }   
+//    public String captureAccess(String user, String pass){
+//        Attendant attendant = new Attendant();
+//        attendant.setUsername(user);
+//        attendant.setPassword(pass);
+//        
+//        String very = attendant.attendantConsultation();
+//        if("OK".equals(very)){
+//            MenuScreen main = new MenuScreen();
+//            main.setVisible(true); 
+//            return "";
+//        } else {
+//            return very;
+//        }  
+//    }   
 }
