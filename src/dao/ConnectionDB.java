@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ConnectionDB {
-    private final static String URL = "jdbc:mysql://localhost:3306/login";
+    private final static String URL = "jdbc:mysql://localhost:3306/vaccine";
     private final static String USUARIO = "root";
     private final static String SENHA = "root";
 

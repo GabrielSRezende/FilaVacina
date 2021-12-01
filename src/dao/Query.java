@@ -34,7 +34,7 @@ public class Query {
     
     //People
     public String insertPeople(){
-        var sql = "INSERT INTO `vaccine`.`people` (name, birth_date, state,city, country,street,number,vaccine_date,health_area,vaccinated,priority,cep) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        var sql = "INSERT INTO `vaccine`.`people` (name, birth_date, state,city, country,street,number,vaccine_date,health_area,vaccinated,priority,cep,cpf) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return sql;
     }
     
@@ -49,7 +49,7 @@ public class Query {
     }
     
     public String updatePeople(){
-        var sql = "UPDATE `vaccine`.`people` SET name=?, birth_date=?, state=?, city=?, country=?, street=?, number=?, health_area=?, priority=?, cep=? WHERE CodPeo=?";
+        var sql = "UPDATE `vaccine`.`people` SET name=?, birth_date=?, state=?, city=?, country=?, street=?, number=?, health_area=?, priority=?, cep=?, cpf=? WHERE CodPeo=?";
         return sql;
     }
 }

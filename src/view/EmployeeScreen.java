@@ -285,7 +285,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         int cod = Integer.parseInt(JOptionPane.showInputDialog("Digite o código do funcionário: "));
         admin.setCod(cod);
-        JOptionPane.showMessageDialog(this, "Alterar: "+admin.selectEmployee().get(0));
+        JOptionPane.showMessageDialog(this, "Editando o colaborador: "+admin.selectEmployee().get(0));
         lblMod.setText("Modo: Edição");
         ArrayList arr = admin.selectEmployee();
         txtName.setText((String) arr.get(0));
@@ -319,7 +319,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         admin.setPassword(pass);
         admin.setAdm(adm);
         admin.insertEmployee();
-        
+        this.btnNewActionPerformed(evt);
         reloadTable();
     }//GEN-LAST:event_bntCadastrarActionPerformed
      
@@ -358,6 +358,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int cod = Integer.parseInt(JOptionPane.showInputDialog("Digite o código do funcionário: "));
+        JOptionPane.showMessageDialog(null, "Tem certeza que deseja deletar o colaborador código: "+cod);
         admin.setCod(cod);
         admin.deleteEmployee();
         reloadTable();

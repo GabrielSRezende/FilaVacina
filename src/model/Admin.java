@@ -24,9 +24,10 @@ public class Admin extends Attendant{
     public String insertEmployee(){
         Query sql = new Query();
         Connection conn = (Connection) ConnectionDB.conector();
-        JOptionPane.showMessageDialog(null, super.getCod());
+        
         if(super.getCod() == 0){
             try {
+                JOptionPane.showMessageDialog(null, "Cadastrando o novo colaborador: "+super.getUsername());
                 PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql.insertEmployee());
                 pstm.setString(1, super.getUsername());
                 pstm.setString(2, super.getPassword());
@@ -90,6 +91,8 @@ public class Admin extends Attendant{
                 PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql.deleteEmployee());
                 pstm.setInt(1, super.getCod());
                 pstm.execute();
+                String selectUser = null;
+ 
                 pstm.close();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);

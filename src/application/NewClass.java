@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.sound.sampled.Clip;
+import model.Admin;
+import model.Attendant;
 import model.Line;
 
 /**
@@ -25,6 +27,6 @@ public class NewClass {
         Line line = new Line();
         ArrayList list = line.report("2021-11-24", "2021-11-27");
         System.out.println(list);
-        
+    
     }
 }

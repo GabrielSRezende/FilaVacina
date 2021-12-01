@@ -7,8 +7,6 @@ package model;
 
 import dao.ConnectionDB;
 import dao.Query;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,26 +44,19 @@ public class Line {
     }
      
     public ArrayList report(String dateIni, String dateFin){
-        //this.people.setVaccineDate(dateIni);
+
         Query sql = new Query();
         ArrayList arr = new ArrayList();
         ArrayList arr2 = new ArrayList();
-        ArrayList arr3 = new ArrayList();
         
         com.mysql.jdbc.Connection conn = (com.mysql.jdbc.Connection) ConnectionDB.conector();
-//        arr3.add("SELECT * FROM `vaccine`.`people` WHERE vaccine_date = ? AND birth_date>");
-//        for (int i = 0; i < 3; i++) {
             
             try {
                 Calendar cal = Calendar.getInstance();
                 DateFormat df = new SimpleDateFormat ("yyyy-MM-dd");
                 Date dt1 = df.parse (dateIni);
                 Date dt2 = df.parse (dateFin);
-                Date hoje = new Date();
                 cal.setTime (dt1);
-                int cont = 0;
-                int cont2 = 0;
-                int cont3 = 0;
                 int Data01cont = 0 , Data02cont = 0, Data03cont = 0, Data04cont = 0;
                 int age = 0;
                 for (Date dt = dt1; dt.compareTo (dt2) <= 0; ) {
@@ -75,7 +66,6 @@ public class Line {
                     pstm.setString(1, dateText);
                     ResultSet rs = pstm.executeQuery();
 
-                    //int dias = Days.daysBetween(dateIni, dateFin).getDays();
                     while(rs.next()){
                         this.people.setCod(rs.getInt("CodPeo")); 
                         age = this.people.age(rs.getString("birth_date"), "yyyy-MM-dd");
@@ -101,10 +91,6 @@ public class Line {
                     dt = cal.getTime();
                 }
 
-
-
-
-                //pstm.close();
                 return arr2;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
